@@ -111,7 +111,7 @@ else
 fi
 
 # Install VNC server
-if [[ $( yum -q list available tigervnc-server > /dev/null 2>&1 )$? -eq 0 ]]
+if yum -q list available tigervnc-server > /dev/null 2>&1
 then
    printf "Installing Tiger VNC Server ... "
    yum --quiet -y install tigervnc-server && echo "Success" || \
@@ -160,7 +160,7 @@ else
 fi
 
 #Install Firefox
-if [[ $( yum list firefox > /dev/null )$? -eq 0 ]]
+if yum list firefox > /dev/null
 then
    printf "Installing firefox browser ... "
    yum install -y firefox && echo "Success" || err_exit "Installing firefox failed"
@@ -248,7 +248,7 @@ cp "${tool_home}"/intellij/jetbrains-idea-ce.desktop /usr/share/applications/jet
 cp "${tool_home}"/intellij/jetbrains-idea-ce.desktop "${workstation_user_home}/.local/share/applications/jetbrains-idea-ce.desktop"
 
 #Install emacs
-if [[ $( yum list emacs > /dev/null )$? -eq 0 ]]
+if yum list emacs > /dev/null
 then
    printf "Installing emacs ... "
    yum install -y emacs && echo "Success" || err_exit "Installing emacs failed"
@@ -275,7 +275,7 @@ ln -s "${gradle_install_dir}/bin/gradle" /usr/local/bin/gradle || \
   err_exit "Failed linking ${gradle_install_dir}/bin/gradle to /usr/local/bin/gradle"
 
 # Install maven
-if [[ $( yum list maven > /dev/null )$? -eq 0 ]]
+if yum list maven > /dev/null
 then
    printf "Installing maven ... "
    yum install -y maven && echo "Success" || err_exit "Install maven failed"
@@ -284,7 +284,7 @@ else
 fi
 
 # Install git
-if [[ $( yum list git > /dev/null )$? -eq 0 ]]
+if yum list git > /dev/null
 then
    printf "Installing git ... "
    yum install -y git && echo "Success" || err_exit "Installing git failed"
@@ -293,7 +293,7 @@ else
 fi
 
 # Install git-gui
-if [[ $( yum list git-gui > /dev/null )$? -eq 0 ]]
+if yum list git-gui > /dev/null
 then
    printf "Installing git-gui ... "
    yum install -y git-gui && echo "Success" || err_exit "Installing git-gui failed"
@@ -302,7 +302,7 @@ else
 fi
 
 # Install ruby
-if [[ $( yum list ruby > /dev/null )$? -eq 0 ]]
+if yum list ruby > /dev/null
 then
    printf "Installing ruby ... "
    yum install -y ruby && echo "Success" || err_exit "Install ruby failed"
